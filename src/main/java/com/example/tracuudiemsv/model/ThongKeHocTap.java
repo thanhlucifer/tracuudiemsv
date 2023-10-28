@@ -6,25 +6,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class DiemHocPhan {
+public class ThongKeHocTap {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "ma_hoc_phan")
-    private HocPhan hocPhan;
-
-    private double diem;
-
-    @ManyToOne
-    @JoinColumn(name = "mssv")
+    @OneToOne
+    @JoinColumn(name = "mssv", referencedColumnName = "mssv") // Chỉ ra rằng mssv là khóa ngoại
     private SinhVien sinhVien;
+    private double dtbHe4;
+    private double dtbHe10;
+    private int soTinChiTichLuy;
+    private int tongSoMonDaHoc;
+
 
 }
