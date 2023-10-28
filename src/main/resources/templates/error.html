@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Error</title>
+  <style>
+    body {
+      background-color: #f8f9fa; /* Màu nền */
+      color: #343a40; /* Màu văn bản */
+      font-family: Arial, sans-serif; /* Font chữ */
+    }
+    h1 {
+      color: #dc3545; /* Màu đỏ cho tiêu đề */
+    }
+    .badge {
+      display: inline-block;
+      padding: .25em .4em;
+      font-size: 75%;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: .25rem;
+    }
+    .bg-red {
+      color: #fff;
+      background-color: #ff0000;
+    }
+    .bg-blue {
+      color: #fff;
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+<div>
+<h1>Error</h1>
+
+<span id="clock" class="bg-red badge"></span>
+<span id="date" class="bg-blue badge"></span>
+  <p th:text="${errorMessage}"></p>
+</div>
+
+<script>
+  function updateClock() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+    var day = now.getDate();
+    var month = now.getMonth() + 1; // Lưu ý: Tháng bắt đầu từ 0
+    var year = now.getFullYear();
+    // Định dạng thời gian
+    var timeString = hours.toString().padStart(2, '0') + ':' +
+            minutes.toString().padStart(2, '0') + ':' +
+            seconds.toString().padStart(2, '0');
+
+    // Định dạng ngày tháng
+    var dateString = day.toString().padStart(2, '0') + '/' +
+            month.toString().padStart(2, '0') + '/' +
+            year;
+    // Cập nhật thời gian trên trang
+    document.getElementById('clock').textContent = timeString;
+    document.getElementById('date').textContent = dateString;
+    // Cập nhật thời gian mỗi giây
+    setTimeout(updateClock, 1000);
+  }
+
+  // Khởi động hàm cập nhật thời gian
+  updateClock();
+</script>
+
+</body>
+</html>

@@ -22,6 +22,5 @@ public class ThongKeHocTap {
     private double dtbHe10;
     private int soTinChiTichLuy;
     private int tongSoMonDaHoc;
-
-
+    
 }
