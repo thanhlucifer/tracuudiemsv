@@ -1,12 +1,13 @@
 package com.example.tracuudiemsv.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -18,5 +19,11 @@ public class HocPhan {
     private String maHocPhan;
     private String tenHocPhan;
 
-    // Getters, setters, constructors...
+    @ManyToMany
+    @JoinTable(
+            name = "hocphan_giangvien",
+            joinColumns = @JoinColumn(name = "maHocPhan"),
+            inverseJoinColumns = @JoinColumn(name = "magv")
+    )
+    private Set<GiangVien> giangViens = new HashSet<>();
 }

@@ -11,14 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class TraCuuController {
+@RequestMapping("user")
+public class HomeController {
 
     @Autowired
     private SinhVienService sinhVienService;
-
-    @RequestMapping("/")
-    public String tracuuForm() {
-        return "tracuu"; // Trả về tên của file HTML để hiển thị trang tra cứu
+    @GetMapping("")
+    public String index()// test trang user
+    {
+        return "user/home";
     }
 
     @PostMapping("/tracuu")
@@ -33,4 +34,5 @@ public class TraCuuController {
             return "error"; // Trả về trang thông báo lỗi
         }
     }
+
 }

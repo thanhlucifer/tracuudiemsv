@@ -3,79 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Kết Quả Tra Cứu</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="kequa.css">
+
 </head>
 <body>
 <header>
     <h1>Kết Quả Tra Cứu</h1>
 </header>
-<main>
-    <section class="thong-tin-chung">
-        <h2>Thông tin chung</h2>
-        <ul>
-            <li>Họ tên: <span th:text="${sinhVien.hoTen}"></span></li>
-            <li>Phái: <span th:text="${sinhVien.phai}"></span></li>
-            <li>Ngày sinh: <span th:text="${#dates.format(sinhVien.ngaySinh, 'dd/MM/yyyy')}"></span></li>
-            <li>Nơi sinh: <span th:text="${sinhVien.noiSinh}"></span></li>
-        </ul>
-    </section>
-    <section class="thong-tin-lop-nganh">
-        <h2>Thông tin lớp và ngành</h2>
-        <ul>
-            <li>Lớp: <span th:text="${sinhVien.lop.tenLop}"></span></li>
-            <li>Ngành: <span th:text="${sinhVien.nganh.tenNganh}"></span></li>
-        </ul>
-    </section>
-    <section class="diem-hoc-phan">
-        <h2>Điểm học phần</h2>
-        <ul>
-            <li th:each="diem : ${sinhVien.diemHocPhans}">
-                <span th:text="${diem.hocPhan.tenHocPhan}"></span>: <span th:text="${diem.diem}"></span>
-            </li>
-        </ul>
-    </section>
-</main>
+<div class="Card">
+    <div class="CardInner">
+
+        <main>
+            <section class="thong-tin-chung">
+                <h2>Thông tin chung</h2>
+                <ul>
+                    <li>Họ tên: <span th:text="${sinhVien.hoTen}"></span></li>
+                    <li>Phái: <span th:text="${sinhVien.phai}"></span></li>
+                    <li>Ngày sinh: <span th:text="${#dates.format(sinhVien.ngaySinh, 'dd/MM/yyyy')}"></span></li>
+                    <li>Nơi sinh: <span th:text="${sinhVien.noiSinh}"></span></li>
+                </ul>
+            </section>
+            <section class="thong-tin-lop-nganh">
+                <h2>Thông tin lớp và ngành</h2>
+                <ul>
+                    <li>Lớp: <span th:text="${sinhVien.lop.tenLop}"></span></li>
+                    <li>Ngành: <span th:text="${sinhVien.nganh.tenNganh}"></span></li>
+                </ul>
+            </section>
+            <section class="diem-hoc-phan">
+                <h2>Điểm học phần</h2>
+                <ul>
+                    <li th:each="diem : ${sinhVien.diemHocPhans}">
+                        <span th:text="${diem.hocPhan.tenHocPhan}"></span>: <span th:text="${diem.diem}"></span>
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+    </div>
+</div>
 <footer>
     <p>Copyright &copy; 2023</p>
 </footer>
+</body>
+</html>
 
-<style>
-    body {
-        font-family: sans-serif;
-    }
-
-    header {
-        text-align: center;
-    }
-
-    main {
-        margin: 0 auto;
-        width: 500px;
-    }
-
-    section {
-        padding: 20px 0;
-    }
-
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    li {
-        margin-bottom: 10px;
-    }
-
-    h1, h2 {
-        font-weight: bold;
-    }
-
-    span {
-        color: #666;
-    }
-
-    footer {
-        text-align: center;
-    }
-</style>
