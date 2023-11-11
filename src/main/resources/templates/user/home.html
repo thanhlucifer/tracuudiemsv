@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout_user">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
 </head>
 <body>
-<h1>Day la home</h1>
+<div layout:fragment="content_banner"  class="container-fluid p-0 mb-5">
+        <div class="owl-carousel header-carousel position-relative">
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="/assets1/img/carousel-1.jpg" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-sm-10 col-lg-8">
+                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Tra cứu kết quả học tập</h5>
+                                <h1 class="display-3 text-white animated slideInDown">Nền tảng tra cứu trực tuyến hàng đầu</h1>
+                                <p class="fs-5 text-white mb-4 pb-2">Chúng tôi cung cấp một nền tảng tiện lợi và dễ sử dụng để sinh viên có thể tra cứu kết quả học tập của mình một cách nhanh chóng và chính xác.</p>
+                                <a th:href="@{/user/tra-cuu}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search</a>
+                                <a href="#" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Ranking</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="/assets1/img/carousel-2.jpg" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-sm-10 col-lg-8">
+                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Tra cứu kết quả học tập</h5>
+                                <h1 class="display-3 text-white animated slideInDown">Nền tảng tra cứu trực tuyến hàng đầu</h1>
+                                <p class="fs-5 text-white mb-4 pb-2">Chúng tôi cung cấp một nền tảng tiện lợi và dễ sử dụng để sinh viên có thể tra cứu kết quả học tập của mình một cách nhanh chóng và chính xác.</p>
+                                <a th:href="@{/user/tra-cuu}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search</a>
+                                <a href="#" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Ranking</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

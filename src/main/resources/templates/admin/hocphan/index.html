@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout_admin" xmlns:custom="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Học Phần</title>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- CSS Files -->
+  <link id="pagestyle" href="/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+  <!-- Nepcha Analytics (nepcha.com) -->
+  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+</head>
+<body>
+<div layout:fragment="content_admin" class="container-fluid py-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+          <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+            <b class="text-white text-capitalize ps-3">Danh Sách Học Phần</b>
+            <a th:href="@{/admin/hocphan/them}" class="btn btn-success btn-sm ms-3">Thêm Học Phần</a>
+          </div>
+        </div>
+        <div class="card-body px-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0">
+              <thead>
+              <tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mã Học Phần</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên Học Phần</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Số tín chỉ</th>
+                <!-- Add more headers as needed -->
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="hocphan : ${danhSachHocPhan}">
+                <td th:text="${hocphan.maHocPhan}"></td>
+                <td th:text="${hocphan.tenHocPhan}"></td>
+                <td th:text="${hocphan.soTinChi}"></td>
+                <td>
+                  <a th:href="@{/admin/hocphan/sua/{maHocPhan}(maHocPhan=${hocphan.maHocPhan})}" class="btn btn-secondary">Sửa</a>
+                  <a th:href="@{/admin/hocphan/xoa/{maHocPhan}(maHocPhan=${hocphan.maHocPhan})}" class="btn btn-danger">Xóa</a>
+                </td>
+
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<!--   Core JS Files   -->
+<script src="/assets/js/core/popper.min.js"></script>
+<script src="/assets/js/core/bootstrap.min.js"></script>
+<script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script>
+  var win = navigator.platform.indexOf('Win') > -1;
+  if (win && document.querySelector('#sidenav-scrollbar')) {
+    var options = {
+      damping: '0.5'
+    }
+    Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+  }
+</script>
+</html>

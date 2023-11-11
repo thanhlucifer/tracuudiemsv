@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout_user">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết Quả Tra Cứu</title>
+
+    <!-- Thêm các lớp bootstrap CSS vào trang -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div layout:fragment="content_user"  class="container-fluid py-4">
+    <!-- Sử dụng các lớp bootstrap CSS trong trang -->
+    <h1 class="display-4 text-center mb-5">Kết Quả Tra Cứu</h1>
+
+    <!-- Display SinhVien information -->
+    <h2 class="fs-4 fw-bold">Thông Tin Sinh Viên</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="fs-5"><span class="fw-bold">Họ Tên:</span> <span th:text="${sinhVien.hoTen}"></span></p>
+            <p class="fs-5"><span class="fw-bold">Phái:</span> <span th:text="${sinhVien.phai}"></span></p>
+            <p class="fs-5"><span class="fw-bold">Ngày Sinh:</span> <span th:text="${#dates.format(sinhVien.ngaySinh, 'dd/MM/yyyy')}"></span></p>
+            <p class="fs-5"><span class="fw-bold">Nơi Sinh:</span> <span th:text="${sinhVien.noiSinh}"></span></p>
+            <p class="fs-5"><span class="fw-bold">Lớp:</span> <span th:text="${sinhVien.lop.tenLop}"></span></p>
+            <p class="fs-5"><span class="fw-bold">Ngành:</span> <span th:text="${sinhVien.nganh.tenNganh}"></span></p>
+        </div>
+    </div>
+
+    <!-- Display DiemHocPhan information -->
+    <h2 class="fs-4 fw-bold mt-5">Điểm Học Phần</h2>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>Mã Học Phần</th>
+                <th>Tên Học Phần</th>
+                <th>Điểm</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="diem : ${diemHocPhans}">
+                <td th:text="${diem.hocPhan.maHocPhan}"></td>
+                <td th:text="${diem.hocPhan.tenHocPhan}"></td>
+                <td th:text="${diem.diem}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Display ThongKeHocTap information -->
+    <h2 class="fs-4 fw-bold mt-5">Thống Kê Học Tập</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="fs-5"><span class="fw-bold">Điểm Trung Bình Tích Lũy (Hệ 4):</span> <span th:text="${thongKeHocTap.dtbHe4}"></span></p>
+            <p class="fs-5"><span class="fw-bold">Điểm Trung Bình Tích Lũy (Hệ 10):</span> <span th:text="${thongKeHocTap.dtbHe10}"></span></p>
+            <p class="fs-5"><span class="fw-bold">Số Tín Chỉ Tích Lũy:</span> <span th:text="${thongKeHocTap.soTinChiTichLuy}"></span></p>
+            <p class="fs-5"><span class="fw-bold">Tổng Số Môn Đã Học:</span> <span th:text="${thongKeHocTap.tongSoMonDaHoc}"></span></p>
+        </div>
+    </div>
+
+    <a th:href="@{/user/tra-cuu}" class="btn btn-primary my-5">Trở về trang tra cứu</a>
+
+    <!-- Thêm các script bootstrap JS vào trang -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</div>
+</body>
+</html>

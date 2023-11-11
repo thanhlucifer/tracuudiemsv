@@ -18,7 +18,7 @@ public class HocPhan {
     @Id
     private String maHocPhan;
     private String tenHocPhan;
-
+    private int soTinChi; // Thêm trường soTinChi
     @ManyToMany
     @JoinTable(
             name = "hocphan_giangvien",

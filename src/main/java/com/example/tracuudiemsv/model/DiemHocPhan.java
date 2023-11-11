@@ -18,13 +18,13 @@ public class DiemHocPhan {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "ma_hoc_phan")
+    @JoinColumn(name = "ma_hoc_phan", referencedColumnName = "maHocPhan")
     private HocPhan hocPhan;
 
     private double diem;
 
     @ManyToOne
-    @JoinColumn(name = "mssv")
+    @JoinColumn(name = "mssv",referencedColumnName = "mssv")
     private SinhVien sinhVien;
 
 }
